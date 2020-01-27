@@ -1,0 +1,40 @@
+<mat-toolbar><span style="margin-left: 20px">Confirm your ticket</span></mat-toolbar>
+<mat-card>
+  <div class="container">
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input disabled matInput placeholder="Date" value="{{screening.date | date: 'short'}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input disabled matInput placeholder="Hall" value="{{screening.idHall.nameHall}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input disabled matInput placeholder="Row" value="{{seat.row}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input disabled matInput placeholder="Seat" value="{{seat.place}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" color="accent">
+          <mat-label>Ticket type</mat-label>
+          <mat-select [(value)]="price" placeholder="Adult">
+            <mat-option value="14">Adult</mat-option>
+            <mat-option value="8">Student</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input disabled matInput placeholder="Price" value="{{price}} PLN">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div *ngIf="!progressBarShow" class="container">
+          <button (click)="onConfirmClick()" color="accent" mat-raised-button type="submit">CONFIRM</button>
+        </div>
+        <div class="container">
+          <mat-progress-spinner *ngIf="progressBarShow" color="accent" mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
+      </mat-card-actions>
+    </form>
+  </div>
+</mat-card>

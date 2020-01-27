@@ -1,0 +1,23 @@
+<mat-card>
+  <div class="container">
+    <img src="{{movie.image}}">
+    <div class="details-container">
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>
+        <ul class="flex-container space-between">
+          <li class="flex-item">Genre: <span class="text"> {{movie.genre}}</span></li>
+          <li class="flex-item">Year:<span class="text"> {{movie.year}}</span></li>
+          <li class="flex-item">Country:<span class="text"> {{movie.country}}</span></li>
+          <li class="flex-item">Length: <span class="text"> {{movie.length}}</span></li>
+        </ul>
+      </mat-card-subtitle>
+    </div>
+    <mat-card-content>
+      <p>{{movie.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </div>
+  <mat-divider></mat-divider>
+</mat-card>

@@ -1,0 +1,41 @@
+.image {
+  height: 50em;
+  background-size: cover;
+  width: auto;
+  background-image: url(/assets/krists-luhaers-AtPWnYNDJnM-unsplash.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.title {
+  font-size: 80px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+
+.col-cell {
+  text-align: center;
+  flex: 1;
+}
+
+.left-container {
+  text-align: center;
+  width: 50vw;
+  height: 60vh;
+  float: left;
+
+}
+
+.right-container {
+  text-align: center;
+  width: 50vw;
+  height: 60vh;
+  float: left
+
+}

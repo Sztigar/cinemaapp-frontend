@@ -1,0 +1,27 @@
+.screen {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mat-raised-button {
+  min-width: 2%;
+}
+
+.next {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

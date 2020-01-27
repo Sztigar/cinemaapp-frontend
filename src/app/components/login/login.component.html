@@ -1,0 +1,31 @@
+<mat-toolbar><span style="margin-left: 20px">Login</span></mat-toolbar>
+
+<mat-card>
+  <div class="container">
+    <form [formGroup]="ownerForm" class="example-form">
+      <mat-card-content>
+        <p>
+          <mat-form-field class="example-full-width" color="accent">
+            <input formControlName="login" id="login" matInput placeholder="Login" type="text">
+            <mat-error *ngIf="hasError('login', 'required')">Login required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" color="accent">
+            <input formControlName="password" id="password" matInput placeholder="Password" type="password">
+            <mat-error *ngIf="hasError('password', 'required')">Password required</mat-error>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="container">
+          <button (click)="onLoginClick()" *ngIf="!progressBarShow" color="accent" mat-raised-button
+                  type="submit">LOGIN
+          </button>
+        </div>
+      </mat-card-actions>
+      <div class="container">
+        <mat-progress-spinner *ngIf="progressBarShow" color="accent" mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
+    </form>
+  </div>
+</mat-card>

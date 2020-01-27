@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import {Component, OnInit} from '@angular/core';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
+import {AuthService} from 'src/app/services/auth.service';
 
 
 @Component({
@@ -10,13 +11,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+
+  constructor(public authService: AuthService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
-        'popcorn',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/popcorn.svg'));
+      'popcorn',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/popcorn.svg'));
   }
 
   ngOnInit() {
   }
+
+
 
 }

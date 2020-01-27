@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <span style="margin-left: 20px">Buy ticket</span>
+</mat-toolbar>
+<div *ngFor="let movie of (movies$ | async)">
+  <app-screening-item [movie]="movie"></app-screening-item>
+</div>

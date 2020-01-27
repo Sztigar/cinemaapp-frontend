@@ -1,0 +1,23 @@
+<mat-toolbar><span style="margin-left: 20px">Select Seats</span></mat-toolbar>
+<mat-toolbar class="screen" color="accent">SCREEN</mat-toolbar>
+<div class="container">
+  <table>
+    <tr *ngFor="let row of (seats | keyvalue)">
+      <strong>{{row.key}}</strong>
+      <td *ngFor="let seat of row.value">
+        <div *ngIf="seat?.taken === false">
+          <button (click)="onClick(seat)" color="accent" mat-raised-button>{{seat.place}}</button>
+        </div>
+        <div *ngIf="seat?.taken === true">
+          <button (click)="onClick(seat)" color="warn" mat-raised-button>{{seat.place}}</button>
+        </div>
+        <div *ngIf="seat?.taken === null">
+          <button (click)="onClick(seat)" color="primary" mat-raised-button>{{seat.place}}</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div (click)="onConfirm()" *ngIf="seatChosen" class="next">
+  <button color="accent" mat-raised-button>CONFIRM</button>
+</div>

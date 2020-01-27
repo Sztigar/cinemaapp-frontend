@@ -1,11 +1,16 @@
 <mat-toolbar>
-    <mat-icon svgIcon="popcorn" aria-hidden="false" aria-label="My Cinema Logo"></mat-icon>
-    <span>MyCinema</span>
+  <mat-toolbar-row color="primary">
+    <a mat-button routerLink="/">
+      <mat-icon aria-hidden="false" aria-label="My Cinema Logo" svgIcon="popcorn"></mat-icon>
+      MyCinema
+    </a>
     <span class="filler"></span>
-    <span>Repertuar</span>
-    <span>O Nas</span>
-    <span>Kina</span>
-    <span>Kup bilet</span>
-    <span>Rejestracja</span>
-    <span>Logowanie</span>
+    <a mat-button routerLink="/movies">MOVIES</a>
+    <a *ngIf="authService.isLoggedIn()" mat-button routerLink="/screenings">BUY TICKET</a>
+    <a *ngIf="authService.isLoggedOut()" mat-button routerLink="/register">REGISTER</a>
+    <a *ngIf="authService.isLoggedOut()" mat-button routerLink="/login">LOG IN</a>
+    <!--        <a *ngIf="authService.isLoggedIn()" mat-button routerLink="/profile">PROFILE</a>-->
+    <a *ngIf="authService.isAdmin()" mat-button routerLink="/dashboard">DASHBOARD</a>
+    <a (click)="authService.logout()" *ngIf="authService.isLoggedIn()" mat-button routerLink="/">LOG OUT</a>
+  </mat-toolbar-row>
 </mat-toolbar>

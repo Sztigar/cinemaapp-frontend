@@ -1,0 +1,6 @@
+<mat-toolbar><span style="margin-left: 20px">Login</span></mat-toolbar>
+<table>
+  <div *ngFor="let ticket of (tickets$ | async)">
+    <app-ticket-item [ticket]="ticket"></app-ticket-item>
+  </div>
+</table>

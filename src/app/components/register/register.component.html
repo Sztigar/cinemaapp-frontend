@@ -1,0 +1,72 @@
+<mat-toolbar><span style="margin-left: 20px">Register</span></mat-toolbar>
+
+<mat-card>
+  <div class="register-container">
+    <form [formGroup]="ownerForm" class="example-form">
+      <mat-card-content>
+
+        <table class="example-full-width">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" color="accent">
+                <input formControlName="login" id="login" matInput minlength="4" placeholder="Login"
+                       type="text">
+                <mat-error *ngIf="hasError('login', 'required')">Login required</mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" color="accent">
+                <input formControlName="password" id="password" matInput minlength="5" placeholder="Password"
+                       type="password">
+                <mat-error *ngIf="hasError('password', 'required')">Password required</mat-error>
+                <mat-error *ngIf="hasError('password', 'minlength')">Atleast 5 characters</mat-error>
+              </mat-form-field>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" color="accent">
+                <input formControlName="firstname" id="firstname" matInput minlength="4" placeholder="First name"
+                       type="text">
+                <mat-error *ngIf="hasError('firstname', 'required')">First name required</mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" color="accent">
+                <input formControlName="lastname" id="lastname" matInput minlength="4" placeholder="Last name"
+                       type="text">
+                <mat-error *ngIf="hasError('lastname', 'required')">Last name required</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <p>
+          <mat-form-field class="example-full-width" color="accent">
+            <input formControlName="email" id="email" matInput placeholder="Email" type="email">
+            <mat-error *ngIf="hasError('email', 'email')">This is not email adress</mat-error>
+            <mat-error *ngIf="hasError('email', 'required')">Email required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" color="accent">
+            <input [matDatepicker]="picker" [max]="maxDate" disabled id="birthday" matInput
+                   placeholder="Birthday  (click icon)">
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false" touchUi></mat-datepicker>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="register-container">
+          <button (click)="onRegisterClick()" *ngIf="!progressBarShow" color="accent" mat-raised-button
+                  type="submit">REGISTER
+          </button>
+        </div>
+      </mat-card-actions>
+      <div class="register-container">
+        <mat-progress-spinner *ngIf="progressBarShow" color="accent" mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
+    </form>
+  </div>
+</mat-card>
